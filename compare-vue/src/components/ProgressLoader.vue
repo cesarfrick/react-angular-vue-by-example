@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../node_modules/bulma/bulma.sass';
+@import '../main.scss';
 
 .loader-container {
   display: flex;

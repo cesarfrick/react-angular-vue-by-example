@@ -5,9 +5,7 @@
           <router-link to="/" class="nav-item">My Company</router-link>
         </div>
 
-        <span :class="['nav-toggle', { 'is-active': isActive }]"
-              @click="toggleNav"
-        >
+        <span :class="['nav-toggle', { 'is-active': isActive }]" @click="toggleNav">
           <span></span>
           <span></span>
           <span></span>
@@ -15,7 +13,9 @@
 
         <div :class="['nav-right', 'nav-menu', { 'is-active': isActive }]">
           <nav v-for="(route, index) in routes" :key="index">
-            <router-link :to="route.path" class="nav-item r-item">{{ route.name }}</router-link>
+            <router-link :to="route.path" class="nav-item r-item">
+              {{ route.name }}
+            </router-link>
           </nav>
 
           <div class="nav-item">

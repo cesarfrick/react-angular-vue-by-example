@@ -14,8 +14,8 @@
         </span>
 
         <div :class="['nav-right', 'nav-menu', { 'is-active': isActive }]">
-          <nav v-for="(link, index) in routeLinks" :key="index">
-            <router-link :to="link.route" class="nav-item r-item">{{ link.text }}</router-link>
+          <nav v-for="(route, index) in routes" :key="index">
+            <router-link :to="route.path" class="nav-item r-item">{{ route.name }}</router-link>
           </nav>
 
           <div class="nav-item">
@@ -35,15 +35,12 @@
 </template>
 
 <script>
+import { routes } from '../router/index';
+
 export default {
   name: 'header',
   data: () => ({
-    routeLinks: [
-      { route: '/', text: 'Home' },
-      { route: '/faq', text: 'Features' },
-      { route: '/faq', text: 'About' },
-      { route: '/faq', text: 'Faq' },
-    ],
+    routes,
     isActive: false,
   }),
   methods: {

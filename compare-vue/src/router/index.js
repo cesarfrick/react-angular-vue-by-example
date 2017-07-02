@@ -5,17 +5,29 @@ import Faq from '@/components/Faq';
 
 Vue.use(Router);
 
+export const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/faq',
+    name: 'Features',
+    component: Faq,
+  },
+  {
+    path: '/faq',
+    name: 'About',
+    component: Faq,
+  },
+  {
+    path: '/faq',
+    name: 'Faq',
+    component: Faq,
+  },
+];
+
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home,
-    },
-    {
-      path: '/faq',
-      name: 'Faq',
-      component: Faq,
-    },
-  ],
+  routes,
 });

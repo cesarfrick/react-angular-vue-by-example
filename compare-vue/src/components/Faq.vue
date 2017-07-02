@@ -1,7 +1,9 @@
 <template>
   <div class="faq">
       <div class="container">
-        <section class="section">
+        <loader v-if="this.isLoading" :full-page="true"></loader>
+
+        <section class="section" v-else>
           <h1 class="title">FAQ</h1>
           <h2 class="subtitle is-4">Lorem ipsum and all that jazz</h2>
 
@@ -16,7 +18,8 @@
 </template>
 
 <script>
-import axios from 'axios';
+import api from '../api/faq';
+import ProgressLoader from './ProgressLoader';
 import Card from './Card';
 
 export default {
@@ -24,19 +27,23 @@ export default {
   data: () => ({
     faqs: [],
     errors: [],
+    isLoading: true,
   }),
 
   created() {
-    axios.get('http://jsonplaceholder.typicode.com/posts')
+    api.getFaqs()
       .then((response) => {
         this.faqs = response.data.slice(0, 10);
+        this.isLoading = false;
       })
       .catch((e) => {
         this.errors.push(e);
+        this.isLoading = false;
       });
   },
   components: {
     'faq-card': Card,
+    loader: ProgressLoader,
   },
 };
 </script>

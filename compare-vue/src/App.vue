@@ -6,13 +6,15 @@
           <a class="nav-item">My Company</a>
         </div>
 
-        <span class="nav-toggle">
+        <span :class="['nav-toggle', { 'is-active': isActive }]"
+              @click="toggleNav"
+        >
           <span></span>
           <span></span>
           <span></span>
         </span>
 
-        <div class="nav-right nav-menu">
+        <div :class="['nav-right', 'nav-menu', { 'is-active': isActive }]">
           <router-link to="/" class="nav-item r-item">Home</router-link>
           <router-link to="/faq" class="nav-item r-item">Features</router-link>
           <router-link to="/faq" class="nav-item r-item">About</router-link>
@@ -39,6 +41,14 @@
 <script>
 export default {
   name: 'app',
+  data() {
+    return { isActive: false };
+  },
+  methods: {
+    toggleNav() {
+      this.isActive = !this.isActive;
+    },
+  },
 };
 </script>
 
@@ -66,6 +76,12 @@ export default {
       &:hover {
         background-color: #f1f1f1;
       }
+    }
+  }
+
+  &-toggle {
+    span {
+      background-color: #c1c1c1;
     }
   }
 }

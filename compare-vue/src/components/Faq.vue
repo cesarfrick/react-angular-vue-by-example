@@ -7,12 +7,7 @@
 
           <div class="columns" v-if="faqs && faqs.length">
             <div class="column is-one-third" v-for="faq of faqs" :key="faq.id">
-              <div class="card">
-                <div class="card-content">
-                  <p class="title">{{ faq.title }}</p>
-                  <p class="subtitle">{{ faq.body }}</p>
-                </div>
-              </div>
+              <faq-card :title="faq.title" :body="faq.body"></faq-card>
             </div>
           </div>
         </section>
@@ -22,6 +17,7 @@
 
 <script>
 import axios from 'axios';
+import Card from './Card';
 
 export default {
   name: 'faq',
@@ -38,6 +34,9 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
+  },
+  components: {
+    'faq-card': Card,
   },
 };
 </script>

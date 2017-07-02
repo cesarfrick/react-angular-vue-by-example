@@ -26,30 +26,9 @@
           </div>
         </div>
 
-        <div class="columns pd">
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <p class="title">"I think it's an absolutely excellent tool for our business. I can't survive without this thing"</p>
-                <p class="subtitle">- Gary Simon</p>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <p class="title">"I think it's an absolutely excellent tool for our business. I can't survive without this thing"</p>
-                <p class="subtitle">- Gary Simon</p>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <p class="title">"I think it's an absolutely excellent tool for our business. I can't survive without this thing"</p>
-                <p class="subtitle">- Gary Simon</p>
-              </div>
-            </div>
+        <div class="columns pd" v-if="testimonials && testimonials.length">
+          <div class="column" v-for="(testimonial, index) in testimonials" :key="index">
+            <testimony :title="testimonial.testimony" :body="`- ${testimonial.author}`"></testimony>
           </div>
         </div>
       </div>
@@ -58,13 +37,23 @@
 </template>
 
 <script>
+import Card from './Card';
+
 export default {
   name: 'home',
   data() {
     return {
       heading: 'Soaring to new heights',
       subheading: 'Et aliqua reprehenderit dolore laboris enim id cupidatat ad sit do sint proident reprehenderit occaecat. Nulla ipsum ex veniam esse.',
+      testimonials: [
+        { testimony: 'Creating Vue components is quite easy!', author: 'Cesar Frick' },
+        { testimony: 'It looks like React meets Angular', author: 'Somebody Somewhere' },
+        { testimony: 'It\'s quite easy to grasp the essentials of it', author: 'César Mijares' },
+      ],
     };
+  },
+  components: {
+    testimony: Card,
   },
 };
 </script>

@@ -16,8 +16,10 @@ class Header extends Component {
             isToggleOn: !prevState.isToggleOn
         }));
     }
+    
     render() {
         const menuActive = this.state.isToggleOn ? ' is-active' : '';
+        
         return (
             <header className="nav has-shadow">
                 <div className="container">
@@ -31,7 +33,6 @@ class Header extends Component {
                         <span></span>
                     </span>
 
-                    {/*<div :class="['nav-right', 'nav-menu', { 'is-active': isActive }]">*/}
                     <div className={`nav-right nav-menu${menuActive}`}>
                         <Link to="/" className="nav-item r-item">Home</Link>
                         <Link to="/faq" className="nav-item r-item">Features</Link>

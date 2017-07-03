@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Components } from 'react';
 
-export const Faq = () => {
-    return(
-        <div>
-            Faq
-        </div>
-    )
+class Faq extends Component {
+    render() {
+        return(
+            <div>
+                Faq
+            </div>
+        );
+    }
 }
 
 export default Faq;

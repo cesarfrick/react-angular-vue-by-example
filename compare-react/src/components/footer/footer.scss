@@ -1,7 +1,8 @@
-@import './../../App.scss';
+@import './../../scss/_mediaqueries.scss';
 
 .footer {
-  background-color: $primary;
+  background-color: $primary !important;
+  color: #fff;
 
   .icon {
     color: #fff;

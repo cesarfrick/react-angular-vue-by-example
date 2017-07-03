@@ -1,0 +1,32 @@
+@import '../../scss/_mediaqueries.scss';
+
+.nav {
+  background-color: #3b3b3b;
+
+  a:hover {
+    color: gray;
+  }
+
+  &-left a{
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .r-item {
+    color: #c1c1c1;
+    padding: .5rem 1.75rem;
+
+    @include mobile {
+      color: gray;
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+  &-toggle {
+    span {
+      background-color: #c1c1c1;
+    }
+  }
+}
